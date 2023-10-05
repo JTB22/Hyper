@@ -1,7 +1,25 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const Response = async (runs) => {
+  const response = await axios.get(`http://localhost:3000/lorem/${runs}/true`);
+  console.log(response.data);
+  return response.data;
+};
 function Lorem(props) {
+  const [data, setData] = useState("");
   const turns = Array(props.runs).fill(0);
   const isLorem = props.lorem;
   let isRuns = 0;
+
+  useEffect(() => {
+    if (data.length === 0) {
+      Response(100).then((res) => {
+        setData((data) => (data += res));
+        console.log(data);
+      });
+    }
+  });
 
   if (isLorem) {
     return (
@@ -420,6 +438,7 @@ function Lorem(props) {
             <h2>Body Header</h2>
             <div className="card-body">
               <p>Body Body</p>
+              <p>{data}</p>
             </div>
           </div>
         ))}
