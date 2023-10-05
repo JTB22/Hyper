@@ -1,15 +1,11 @@
+import { Link } from "react-router-dom";
+
 function Menu() {
   return (
     <nav>
-      <a className="bounce-in-top" href="">
-        Home
-      </a>
-      <a className="bounce-in-top" href="">
-        About
-      </a>
-      <a className="bounce-in-top" href="">
-        Login
-      </a>
+      <Link to={`/login`}>Login</Link>
+      <Link to={`/`}>Home</Link>
+      <Link to={`/about`}>About</Link>
     </nav>
   );
 }

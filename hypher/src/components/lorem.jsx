@@ -1,12 +1,13 @@
 function Lorem(props) {
   const turns = Array(props.runs).fill(0);
   const isLorem = props.lorem;
+  let isRuns = 0;
 
   if (isLorem) {
     return (
       <>
-        {turns.map((i) => (
-          <div className="card fade-in" key={i}>
+        {turns.map(() => (
+          <div className="card fade-in" key={isRuns}>
             <h2>Body Header</h2>
             <div className="card-body">
               <p>
@@ -406,6 +407,7 @@ function Lorem(props) {
                 uteretur victu, concederem, laudarem etiam;
               </blockquote>
             </div>
+            {isRuns++}
           </div>
         ))}
       </>
@@ -413,8 +415,8 @@ function Lorem(props) {
   } else {
     return (
       <>
-        {turns.map((i) => (
-          <div className="card fade-in" key={i}>
+        {turns.map(() => (
+          <div className="card fade-in" key={isRuns++}>
             <h2>Body Header</h2>
             <div className="card-body">
               <p>Body Body</p>
